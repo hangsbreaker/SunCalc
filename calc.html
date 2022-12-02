@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Calc</title>
+    <script src="js/jquery.1.12.4.min.js"></script>
+    <script src="js/sun_calc.js"></script>
+    <script src="js/tz.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/moment-timezone-with-data-1970-2030.min.js"></script>
+</head>
+
+<body>
+    <script>
+        let lat = -7.8, lon = 110.35,
+            year = 2022, month = 4, day = 2,
+            hour = 11, minute = 18, second = 30;
+        console.log(calculate(lat, lon, year, month, day, hour, minute, second));
+    </script>
+</body>
+
+</html>

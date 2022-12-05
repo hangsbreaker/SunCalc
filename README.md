@@ -10,8 +10,8 @@ Example return<br>
 	"solar_noon": "11:42:23",
 	"sunrise": "05:42",
 	"sunset": "17:43",
-	latitude: -7.8,
-	longitude: 110.35,
+	"latitude": -7.8,
+	"longitude": 110.35,
 	"date": {
 		"year": 2022,
 		"month": 4,

@@ -483,7 +483,7 @@ function DDtoDMS(lat, lng) {
   );
 }
 
-function DMSToDD(degrees, minutes, seconds, direction) {
+function DMStoDD(degrees, minutes, seconds, direction) {
   var dd = Number(degrees) + Number(minutes) / 60 + Number(seconds) / (60 * 60);
 
   if (direction == "S" || direction == "W") {

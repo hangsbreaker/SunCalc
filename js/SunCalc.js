@@ -451,6 +451,50 @@ function timeDateString(JD, minutes) {
 }
 
 //--------------------------------------------------------------
+// Converter lat lng to DMS
+function toDegreesMinutesAndSeconds(coordinate) {
+  var absolute = Math.abs(coordinate);
+  var degrees = Math.floor(absolute);
+  var minutesNotTruncated = (absolute - degrees) * 60;
+  var minutes = Math.floor(minutesNotTruncated);
+  var seconds = Math.floor((minutesNotTruncated - minutes) * 60);
+
+  return degrees + " " + minutes + " " + seconds;
+}
+
+function DDtoDMS(lat, lng) {
+  var latitude = toDegreesMinutesAndSeconds(lat);
+  var latitudeCardinal = lat >= 0 ? "N" : "S";
+
+  var longitude = toDegreesMinutesAndSeconds(lng);
+  var longitudeCardinal = lng >= 0 ? "E" : "W";
+
+  // Example: lat = -7.8, lng = 110.35
+  return (
+    latitude +
+    " " +
+    latitudeCardinal +
+    "\n" +
+    longitude +
+    " " +
+    longitudeCardinal
+  );
+}
+
+function DMSToDD(degrees, minutes, seconds, direction) {
+  var dd = Number(degrees) + Number(minutes) / 60 + Number(seconds) / (60 * 60);
+
+  if (direction == "S" || direction == "W") {
+    dd = dd * -1;
+  } // Don't do anything for N or E
+
+  // Example:
+  // Latitude: DMSToDD(07,15,0,"S");
+  // Logitude: DMSToDD(112,45,0,"E");
+  return dd;
+}
+
+//--------------------------------------------------------------
 // timeString returns a zero-padded string (HH:MM:SS) given time in minutes
 // flag=2 for HH:MM, 3 for HH:MM:SS
 function timeString(minutes, flag) {

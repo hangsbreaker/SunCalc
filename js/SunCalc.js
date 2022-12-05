@@ -599,13 +599,14 @@ function calculate(
     parseInt(date.minute) +
     parseInt(date.second) / 60.0;
   var tz = 0;
+  var utcoffset = "";
   var tzname = tzlookup(-7.467262, 112.716894);
 
   var datestr = getDateString(date);
   if (date.year < 1000) {
-    var utcoffset = moment("1900-1-1").tz(tzname).format("Z");
+    utcoffset = moment("1900-1-1").tz(tzname).format("Z");
   } else {
-    var utcoffset = moment(datestr).tz(tzname).format("Z");
+    utcoffset = moment(datestr).tz(tzname).format("Z");
   }
 
   var a = utcoffset.split(":");

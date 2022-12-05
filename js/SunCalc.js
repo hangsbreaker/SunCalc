@@ -319,7 +319,9 @@ function calcSunriseSetUTC(rise, JD, latitude, longitude) {
   var eqTime = calcEquationOfTime(t);
   var solarDec = calcSunDeclination(t);
   var hourAngle = calcHourAngleSunrise(latitude, solarDec);
-  if (!rise) hourAngle = -hourAngle;
+  if (!rise) {
+    hourAngle = -hourAngle;
+  }
   var delta = longitude + radToDeg(hourAngle);
   var timeUTC = 720 - 4.0 * delta - eqTime; // in minutes
 
@@ -515,7 +517,9 @@ function timeString(minutes, flag) {
       hour += 1;
     }
     var output = zeroPad(hour, 2) + ":" + zeroPad(minute, 2);
-    if (flag > 2) output = output + ":" + zeroPad(second, 2);
+    if (flag > 2) {
+      output = output + ":" + zeroPad(second, 2);
+    }
   } else {
     var output = "error";
   }

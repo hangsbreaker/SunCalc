@@ -686,6 +686,8 @@ function calculate(
     solar_noon: solar_noon,
     sunrise: sunrise,
     sunset: sunset,
+    latitude: lat,
+    longitude: lng,
     date: date,
   };
 

@@ -556,7 +556,7 @@ function getDateString(date) {
 
 function calculate(
   lat = "",
-  lon = "",
+  lng = "",
   year = "",
   month = "",
   day = "",
@@ -564,18 +564,18 @@ function calculate(
   minute = "",
   second = ""
 ) {
-  if (lat == "" || lon == "") {
+  if (lat == "" || lng == "") {
     lat = -6.2378857;
-    lon = 106.8472579;
+    lng = 106.8472579;
   }
 
   if (
-    year == "" ||
-    month == "" ||
-    day == "" ||
-    hour == "" ||
-    minute == "" ||
-    second == ""
+    year === "" ||
+    month === "" ||
+    day === "" ||
+    hour === "" ||
+    minute === "" ||
+    second === ""
   ) {
     var dnow = new Date();
     year = dnow.getFullYear();
@@ -620,17 +620,17 @@ function calculate(
     second: parseInt(date.second),
     time_local: mins,
     lat: lat,
-    lon: lon,
+    lng: lng,
     tz: tz,
   };
 
   var jday = getJD(data.year, data.month, data.day);
   var total = jday + data.time_local / 1440.0 - data.tz / 24.0;
   var T = calcTimeJulianCent(total);
-  var azel = calcAzEl(T, data.time_local, data.lat, data.lon, data.tz);
-  var solnoon = calcSolNoon(jday, data.lon, data.tz);
-  var rise = calcSunriseSet(1, jday, data.lat, data.lon, data.tz);
-  var set = calcSunriseSet(0, jday, data.lat, data.lon, data.tz);
+  var azel = calcAzEl(T, data.time_local, data.lat, data.lng, data.tz);
+  var solnoon = calcSolNoon(jday, data.lng, data.tz);
+  var rise = calcSunriseSet(1, jday, data.lat, data.lng, data.tz);
+  var set = calcSunriseSet(0, jday, data.lat, data.lng, data.tz);
 
   var eqTime = calcEquationOfTime(T);
   var theta = calcSunDeclination(T);

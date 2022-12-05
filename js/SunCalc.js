@@ -657,7 +657,7 @@ function calculate(
   // sunrise time box
   var sunrise = "";
   if (rise.jday == jday) {
-    sunrise = timeString(rise.timelocal, 2);
+    sunrise = timeString(rise.timelocal, 3);
   } else {
     if (rise.azimuth >= 0.0) {
       sunrise = timeDateString(rise.jday, rise.timelocal);
@@ -669,7 +669,7 @@ function calculate(
   // sunset time box
   var sunset = "";
   if (set.jday == jday) {
-    sunset = timeString(set.timelocal, 2);
+    sunset = timeString(set.timelocal, 3);
   } else {
     if (set.azimuth >= 0.0) {
       sunset = timeDateString(set.jday, set.timelocal);

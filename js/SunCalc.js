@@ -496,6 +496,10 @@ function DMStoDD(degrees, minutes, seconds, direction) {
   return dd;
 }
 
+const getDays = (year, month) => {
+  return new Date(year, month, 0).getDate();
+};
+
 //--------------------------------------------------------------
 // timeString returns a zero-padded string (HH:MM:SS) given time in minutes
 // flag=2 for HH:MM, 3 for HH:MM:SS
